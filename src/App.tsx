@@ -1,8 +1,17 @@
+import { useEffect, useState } from "react";
+import { fetchTasks } from "./services/api";
+
 function App() {
+  const [message, setMessage] = useState("");
+
+  useEffect(() =>{
+    fetchTasks().then((data) => setMessage(data.message));
+  },[]);
+
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>¡Hola Mundo, TaskManager está en marcha! 🚀</h1>
-      <p>Esto es una prueba inicial para verificar que todo funciona bien.</p>
+    <div>
+      <h1>Hola mundo</h1>
+      <p>{message}</p>
     </div>
   );
 }
