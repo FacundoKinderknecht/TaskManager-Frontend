@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { login } from "../services/auth";
-import "../styles/login.css";
+import { register } from "../services/auth";
+import "../styles/register.css";
 import Layout from "../components/layout";
 
-const Login = () => {
+const Register = () => {
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [telefono, setTelefono] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -15,29 +17,47 @@ const Login = () => {
     setError("");
 
     try {
-      const response = await login(username, password);
+      const response = await register(username, email, telefono, password);
       if (response.error) {
         setError(response.error);
       } else {
-        navigate("/dashboard"); // Redirigir al dashboard después de iniciar sesión
+        navigate("/login"); // Redirigir al login después de registrarse
       }
     } catch (err) {
       console.log(err);
-      setError("Hubo un error al iniciar sesión");
+      setError("Hubo un error al registrarse");
     }
   };
 
   return (
     <Layout>
-      <div className="login-container">
-        <h2>Iniciar Sesión</h2>
-        <form onSubmit={handleSubmit} className="login-form">
+      <div className="register-container">
+        <h2>Crear Cuenta</h2>
+        <form onSubmit={handleSubmit} className="register-form">
           <div className="input-group">
             <label>Usuario</label>
             <input
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+          </div>
+          <div className="input-group">
+            <label>Email</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className="input-group">
+            <label>Teléfono</label>
+            <input
+              type="tel"
+              value={telefono}
+              onChange={(e) => setTelefono(e.target.value)}
               required
             />
           </div>
@@ -51,11 +71,11 @@ const Login = () => {
             />
           </div>
           {error && <p className="error">{error}</p>}
-          <button type="submit" className="login-btn">Iniciar Sesión</button>
+          <button type="submit" className="register-btn">Registrarse</button>
         </form>
       </div>
     </Layout>
   );
 };
 
-export default Login;
+export default Register;

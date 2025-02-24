@@ -1,0 +1,70 @@
+.edit-task-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 100px); /* Ajuste para no chocar con el header y footer */
+}
+
+.edit-task-card {
+  background: rgba(30, 30, 30, 0.9); /* Fondo oscuro semi-transparente */
+  padding: 20px; /* Asegura espacio interno */
+  border-radius: 12px;
+  width: 400px; /* Un poco más ancho para más comodidad */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.edit-task-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-task-card input,
+.edit-task-card textarea {
+  width: 100%;
+  padding: 12px; /* Más espaciado interno */
+  margin-bottom: 15px; /* Más separación entre los elementos */
+  border: none;
+  border-radius: 6px;
+  background: #222;
+  color: white;
+  font-size: 1rem;
+  text-align: left; /* Asegura que el texto no esté pegado */
+  box-sizing: border-box; /* Evita desbordamientos */
+}
+
+.edit-task-card textarea {
+  resize: none;
+  height: 90px;
+}
+
+.edit-task-card button {
+  width: 48%;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.save-btn {
+  background: #4caf50;
+  color: white;
+}
+
+.cancel-btn {
+  background: #d32f2f;
+  color: white;
+}
+
+.save-btn:hover {
+  background: #388e3c;
+}
+
+.cancel-btn:hover {
+  background: #b71c1c;
+}
