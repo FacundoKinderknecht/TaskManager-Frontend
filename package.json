@@ -3,7 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://tuusuario.github.io/TaskManager-Frontend",
+  "homepage": "https://facundokinderknecht.github.io/TaskManager-Frontend/",
+
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
