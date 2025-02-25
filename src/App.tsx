@@ -7,7 +7,7 @@ import EditTask from "./pages/editTask";
 
 const App = () => {
   return (
-    <Router>
+    <Router basename="/TaskManager-Frontend"> 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
