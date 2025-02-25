@@ -1,7 +1,10 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/TaskManager-Frontend/", // Asegúrate de que esto es correcto
+  base: "/", // Asegurar que el deploy en Render funcione bien
+  server: {
+    port: 5173,
+  },
 });
