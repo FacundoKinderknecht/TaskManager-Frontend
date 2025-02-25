@@ -17,7 +17,7 @@ const Register = () => {
     setError("");
 
     try {
-      const response = await register(username, email, telefono, password);
+      const response = await register({ username, email, telefono, password });
       if (response.error) {
         setError(response.error);
       } else {
