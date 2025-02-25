@@ -24,7 +24,7 @@ export async function getTaskById(id: string) {
   const token = localStorage.getItem("token");
   if (!token) throw new Error("No hay token disponible");
 
-  const response = await fetch(`${API_URL}/edit-task/${id}`, { // <-- Corrección aquí
+  const response = await fetch(`${API_URL}/tasks/${id}`, { // <-- Corrección aquí
     method: "GET",
     headers: {
       "Content-Type": "application/json",
