@@ -7,7 +7,7 @@ import EditTask from "./pages/editTask.tsx";
 
 const App = () => {
   return (
-    <Router basename="/TaskManager-Frontend"> 
+    <Router basename="/"> 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
