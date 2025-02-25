@@ -3,8 +3,9 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/", // Asegurar que el deploy en Render funcione bien
   server: {
-    port: 5173,
+    host: true, // Permite a Vercel acceder al servidor
+    port: 4173, // Puerto estándar de Vite
+    strictPort: true,
   },
 });
