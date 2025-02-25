@@ -1,14 +1,32 @@
 const API_URL = import.meta.env.VITE_API_URL;
 
-export async function register(username: string, email: string, telefono: string, password: string) {
-  const response = await fetch(`${API_URL}/auth/register`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ username, email, telefono, password }),
-  });
+export const register = async (userData: {
+  username: string;
+  email: string;
+  telefono: string;
+  password: string;
+}) => {
+  try {
+    const response = await fetch(`${API_URL}/auth/register`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    });
 
-  return response.json();
-}
+    if (!response.ok) {
+      const errorData = await response.json();
+      return { error: errorData.error || "Error al registrar usuario" };
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Error en la petición:", error);
+    return { error: "Error de conexión con el servidor" };
+  }
+};
+
 
 export async function login(username: string, password: string) {
   const response = await fetch(`${API_URL}/auth/login`, {
